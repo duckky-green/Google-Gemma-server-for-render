@@ -1,6 +1,6 @@
-fastapi
-uvicorn
-pydantic
-transformers
-accelerate
-torch --index-url https://pytorch.org
+fastapi==0.111.0
+uvicorn==0.30.1
+pydantic==2.7.4
+transformers==4.49.0
+accelerate==0.30.1
+torch==2.3.0 --index-url https://pytorch.org
