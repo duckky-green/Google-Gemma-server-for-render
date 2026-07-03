@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: gemma-3-api
+    runtime: python
+    buildCommand: "pip install -r requirements.txt && python -c 'from transformers import AutoTokenizer, AutoModelForCausalLM; AutoTokenizer.from_pretrained(\"google/gemma-3-270m-it\"); AutoModelForCausalLM.from_pretrained(\"google/gemma-3-270m-it\")'"
+    startCommand: "uvicorn app:app --host 0.0.0.0 --port $PORT"
+    plan: starter # Starter plan or higher is recommended to prevent build memory OOM errors
+    envVars:
+      - key: HF_TOKEN
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.0
